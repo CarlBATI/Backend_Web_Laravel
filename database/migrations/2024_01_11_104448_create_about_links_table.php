@@ -15,8 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('url');
             $table->string('text', 100);
-            $table->unsignedTinyInteger('category_id');
+            $table->unsignedBigInteger('category_id');
             $table->timestamps();
+    
+            $table->foreign('category_id')
+                  ->references('id')
+                  ->on('about_categories')
+                  ->onDelete('cascade');
         });
     }
 
