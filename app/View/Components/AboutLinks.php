@@ -8,12 +8,13 @@ use Illuminate\View\Component;
 
 class AboutLinks extends Component
 {
+    public $categories;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($categories)
     {
-        //
+        $this->categories = $categories;
     }
 
     /**
@@ -21,6 +22,6 @@ class AboutLinks extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.about-category-links');
+        return view('components.about-links');
     }
 }

@@ -1,3 +1,1 @@
-<x-about-links
-    :categories="$categories"
-/>
+<x-about-links :categories="$categories"/>
