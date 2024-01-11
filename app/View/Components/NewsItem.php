@@ -8,12 +8,13 @@ use Illuminate\View\Component;
 
 class NewsItem extends Component
 {
+    public $newsItem;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($newsItem)
     {
-        //
+        $this->newsItem = $newsItem;
     }
 
     /**
