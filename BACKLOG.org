@@ -170,7 +170,7 @@ You will at least have an "about" page. This is a static view that will serve as
 *** [ ] Frontend
 **** [X] Create Page ~about~: ~resources/views/about.blade.php~
 **** [ ] Create Link Component
-*** [4/6] Backend
+*** [4/5] Backend
 To make code more DRY, I decided to go the extra mile and make DB tables and loop to display all sources.
 **** [X] Create Tables
 ***** [X] Create About Links Table: ~about_links~
@@ -178,12 +178,14 @@ To make code more DRY, I decided to go the extra mile and make DB tables and loo
 **** [X] Create Models
 ***** [X] Create AboutLink Model: ~app/Models/AboutLink.php~
 ***** [X] Create AboutCategory Model:  ~app/Models/AboutCategory.php~
+***** [X] Create FK Relation
 **** [X] Create Seeders
 ***** [X] ~database/seeders/AboutCategorySeeder.php~
 Creates the necessary categories with hardcoded ids for referencing.
 ***** [X] ~database/seeders/AboutLinkSeeder.php~
-**** [0/1] Create AboutController: ~app/Http/Controllers/AboutController.php~
-***** [ ] ~'index~ Method, renders about page.
+***** [X] Add seeders to main seeder class: database/seeders/DatabaseSeeder.php
+**** [1/1] Create AboutController: ~app/Http/Controllers/AboutController.php~
+***** [X] ~'index~ Method, renders about page.
 **** [X] Create GET Route /about: ~routes/web.php~
 **** [ ] Maintain Current About Page:
 - Continually update the page and sources throughout the project's development.

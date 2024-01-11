@@ -10,8 +10,8 @@ class AboutController extends Controller
 {
     public function index()
     {
-        $links = AboutLink::all();
-        $categories = AboutCategory::all();
-        return view('about', ['links' => $links, 'categories' => $categories]);
+       
+        $categories = AboutCategory::with('links')->get();
+        return view('about', ['categories' => $categories]);  
     }
 }
