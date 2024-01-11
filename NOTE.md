@@ -5,3 +5,8 @@ I initially believed that Laravel 8.x was required. However, I discovered that o
 
 ### Efficiently Create Model, Factory, and Seeder for a Table
 To create models, factories, and seeders for tables, you can use Laravel's `make:model` artisan command with the `-a` (or `--all`) option.
+
+## Create VS Insert in EloquentORM
+The `created_at` and `updated_at` fields are `NULL` when the `insert` method is used. `insert` is a simple query builder method that inserts a record into the database without triggering Eloquent's events or touching the timestamps.
+
+If you want to have the `created_at` and `updated_at` fields automatically filled with the current timestamp, you should use the `create` method instead, which is a part of Eloquent ORM and does trigger these events.
