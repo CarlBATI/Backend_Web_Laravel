@@ -1,3 +1,5 @@
 <x-app-layout :showNavigation="true">
-    <x-about-links :categories="$categories"/>
+    <div class="mx-auto text-center">
+        <x-about-links :categories="$categories"/>
+    </div>
 </x-app-layout>
