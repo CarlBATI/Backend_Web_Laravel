@@ -168,8 +168,9 @@ It is not allowed to just copy/paste an online tutorial to finish this project, 
 You will at least have an "about" page. This is a static view that will serve as your Readme/list of sources. Cite any resources that you've used in this page, as well as a link to those pages. This page is mandatory, if your about page does not exist, you will not be able to pass for this project.
 #+end_src
 *** [ ] Frontend
+**** [X] Create Page ~about~: ~resources/views/about.blade.php~
 **** [ ] Create Link Component
-*** [3/4] Backend
+*** [4/6] Backend
 To make code more DRY, I decided to go the extra mile and make DB tables and loop to display all sources.
 **** [X] Create Tables
 ***** [X] Create About Links Table: ~about_links~
@@ -181,6 +182,9 @@ To make code more DRY, I decided to go the extra mile and make DB tables and loo
 ***** [X] ~database/seeders/AboutCategorySeeder.php~
 Creates the necessary categories with hardcoded ids for referencing.
 ***** [X] ~database/seeders/AboutLinkSeeder.php~
+**** [0/1] Create AboutController: ~app/Http/Controllers/AboutController.php~
+***** [ ] ~'index~ Method, renders about page.
+**** [X] Create GET Route /about: ~routes/web.php~
 **** [ ] Maintain Current About Page:
 - Continually update the page and sources throughout the project's development.
 - Log all utilized resources in the Seeders, ensuring they're reflected in the database and page.
