@@ -13,7 +13,20 @@ class AboutCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        AboutCategory::create(['id' => 1, 'name' => 'documentation']);
-        AboutCategory::create(['id' => 2, 'name' => 'code']);
+       // Define the IDs and names
+        $categories = [
+            1 => 'documentation',
+            2 => 'code',
+            // Add categories as needed
+        ];
+
+        // Delete and create the categories
+        foreach ($categories as $id => $name) {
+            // Delete the category with the current ID
+            AboutCategory::find($id)?->delete();
+
+            // Create the category with the current ID and name
+            AboutCategory::create(['id' => $id, 'name' => $name]);
+        } 
     }
 }
