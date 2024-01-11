@@ -125,7 +125,7 @@ Aside from the GitHub repo, you'll also have to submit a .zip of your project on
 Handing in too late will result in a 0. I only accept submissions through Canvas. Canvas not working because you try to submit your project at the very last minute is not an excuse for handing in too late.
 #+end_src
 * Backlog
-** [3/4] Database
+** [4/4] Database
 *** [X] Create DB ~Backend_Web_Laravel~
 Created MariaDB DB called "Backend_Web_Laravel".
 
@@ -156,7 +156,7 @@ Set the password for the DB:
 SET PASSWORD FOR 'laravel'@'localhost' = PASSWORD('*see .env');
 #+end_src
 
-*** [ ] Fix .env for Laravel <-> Db Connection
+*** [X] Fix .env for Laravel <-> Db Connection
 ** [0/4] About Page
 #+begin_src org
 It is not allowed to just copy/paste an online tutorial to finish this project, but you are allowed to use them as a basis for your own website if you:
@@ -172,8 +172,8 @@ You will at least have an "about" page. This is a static view that will serve as
 *** [ ] Backend
 To make code more DRY, I decided to go the extra mile and make DB tables and loop to display all sources.
 **** [ ] Create Tables
-***** [ ] Create About Links Table
-***** [ ] Create About Links Category Table
+***** [X] Create About Links Table: ~about_links~
+***** [X] Create About Links Category Table: ~about_categories~
 **** [ ] Create Model
 **** [ ] Create Factory
 **** [ ] Create Seeder
