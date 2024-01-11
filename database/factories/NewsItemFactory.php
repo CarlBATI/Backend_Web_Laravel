@@ -28,7 +28,8 @@ class NewsItemFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'image' => $this->faker->imageUrl(),
-            'content' => $this->faker->paragraph,
+            // implode("\n\n", ...) joins paragraphs together with two newline characters (\n\n) between each paragraph.
+            'content' => implode("\n\n", $this->faker->paragraphs($this->faker->numberBetween(1, 20))),
             'publishing_date' => $this->faker->dateTimeThisYear,
         ];
     }
