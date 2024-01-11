@@ -157,7 +157,7 @@ SET PASSWORD FOR 'laravel'@'localhost' = PASSWORD('*see .env');
 #+end_src
 
 *** [X] Fix .env for Laravel <-> Db Connection
-** [0/2] About Page
+** [0/3] About Page
 #+begin_src org
 It is not allowed to just copy/paste an online tutorial to finish this project, but you are allowed to use them as a basis for your own website if you:
 - understand the code you are using and can explain what it does in your own words
@@ -169,8 +169,10 @@ You will at least have an "about" page. This is a static view that will serve as
 #+end_src
 *** [ ] Frontend
 **** [X] Create Page ~about~: ~resources/views/about.blade.php~
-**** [ ] Create Link Component
-*** [4/5] Backend
+**** [/] Create Link Component
+***** [X] Display DB Data (Categories and Links)
+***** [ ] Style Component
+*** [4/4] Backend
 To make code more DRY, I decided to go the extra mile and make DB tables and loop to display all sources.
 **** [X] Create Tables
 ***** [X] Create About Links Table: ~about_links~
@@ -187,10 +189,9 @@ Creates the necessary categories with hardcoded ids for referencing.
 **** [1/1] Create AboutController: ~app/Http/Controllers/AboutController.php~
 ***** [X] ~'index~ Method, renders about page.
 **** [X] Create GET Route /about: ~routes/web.php~
-**** [ ] Maintain Current About Page:
+*** [ ] Maintain Current About Page:
 - Continually update the page and sources throughout the project's development.
 - Log all utilized resources in the Seeders, ensuring they're reflected in the database and page.
-*** [-] Document Sources Throughout Project
 ** [0/3] Login and Auth
 #+begin_src org
 Login system
@@ -200,9 +201,11 @@ Visitors can create a new account
 Users may or may not be an administrator
 Only an administrator can promote another user to administrator status (or create a new user that is an admin)
 #+end_src
+
 *** [ ] Visitors can Register
 *** [ ] Users can Log In
 *** [ ] Users can be either ~admin~ or ~user~
+
 ** [0/5] Profile Page
 #+begin_src org
 Profile pagina
