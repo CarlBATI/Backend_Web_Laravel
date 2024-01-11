@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 // Controllers
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +17,12 @@ use App\Http\Controllers\AboutController;
 |
 */
 
+// TODO
 Route::get('/', function () {
     return view('welcome');
 });
 
+// TODO
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -30,9 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get(
-    '/about',
-    [AboutController::class, 'index']
-)->name('about.index');
+// Public routes
+Route::get('/about', [AboutController::class, 'index'])->name('about.index');
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 
 require __DIR__.'/auth.php';
