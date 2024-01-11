@@ -1,0 +1,2 @@
+# Note
+I initially believed that Laravel 8.x was required. However, I discovered that other versions are also acceptable, so I transitioned to a new project using Laravel 10.x. Some code was transferred from the previous Laravel project.
