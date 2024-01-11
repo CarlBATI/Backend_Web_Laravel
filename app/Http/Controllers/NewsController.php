@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreNewsItemsRequest;
 use App\Http\Requests\UpdateNewsItemsRequest;
-use App\Models\NewsItems;
+use App\Models\NewsItem;
 
-class NewsItemsController extends Controller
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $newsItems = NewsItem::all();
+        return view('news', compact('newsItems'));
     }
 
     /**
