@@ -125,12 +125,43 @@ Aside from the GitHub repo, you'll also have to submit a .zip of your project on
 Handing in too late will result in a 0. I only accept submissions through Canvas. Canvas not working because you try to submit your project at the very last minute is not an excuse for handing in too late.
 #+end_src
 * Backlog
-** [/] Sources
+** [1/3] Database
+*** [X] Create
+Created MariaDB DB called "Backend_Web_Laravel".
+*** [ ] Grant Privileges for DB User and Password
+See all users:
+#+begin_src sql
+SELECT User, Host FROM mysql.user;
+#+end_src
+
+To grant all privileges to a user on a specific database:
+#+begin_src sql
+GRANT ALL PRIVILEGES ON Backend_Web_Laravel.* TO 'username'@'localhost';
+FLUSH PRIVILEGES;
+#+end_src
+
+*** [ ] Fix .env for Laravel <-> Db Connection
+** [0/4] About Page
 #+begin_src org
 It is not allowed to just copy/paste an online tutorial to finish this project, but you are allowed to use them as a basis for your own website if you:
 - understand the code you are using and can explain what it does in your own words
 - you correctly cite your sources
 #+end_src
+
+#+begin_src org
+You will at least have an "about" page. This is a static view that will serve as your Readme/list of sources. Cite any resources that you've used in this page, as well as a link to those pages. This page is mandatory, if your about page does not exist, you will not be able to pass for this project.
+#+end_src
+*** [ ] Frontend
+**** [ ] Create Link Component
+*** [ ] Backend
+To make code more DRY, I decided to go the extra mile and make DB tables and loop to display all sources.
+**** [ ] Create Tables
+***** [ ] Create About Links Table
+***** [ ] Create About Links Category Table
+**** [ ] Create Model
+**** [ ] Create Factory
+**** [ ] Create Seeder
+*** [-] Document Sources Throughout Project
 ** [0/3] Login and Auth
 #+begin_src org
 Login system
