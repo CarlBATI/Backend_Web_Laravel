@@ -15,16 +15,26 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+
+        // Define the email addresses
+        $emails = ['admin@ehb.be', 'user@ehb.be'];
+
+        // Delete the users with the specified email addresses
+        foreach ($emails as $email) {
+            User::where('email', $email)->delete();
+        }
+
+        // Create the users
         User::create([
             'name' => 'admin',
             'email' => 'admin@ehb.be',
-            'password' => 'Password!321',
+            'password' => bcrypt('Password!321'),
         ]);
 
         User::create([
             'name' => 'user',
             'email' => 'user@ehb.be',
-            'password' => 'Password!321',
+            'password' => bcrypt('Password!321'),
         ]);
     }
 }
