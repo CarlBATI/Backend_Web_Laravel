@@ -125,10 +125,21 @@ Aside from the GitHub repo, you'll also have to submit a .zip of your project on
 Handing in too late will result in a 0. I only accept submissions through Canvas. Canvas not working because you try to submit your project at the very last minute is not an excuse for handing in too late.
 #+end_src
 * Backlog
-** [1/3] Database
-*** [X] Create
+** [3/4] Database
+*** [X] Create DB ~Backend_Web_Laravel~
 Created MariaDB DB called "Backend_Web_Laravel".
-*** [ ] Grant Privileges for DB User and Password
+
+#+begin_src sql
+CREATE DATABASE Backend_Web_Laravel;
+#+end_src
+
+*** [X] Create User ~'laravel'~
+
+#+begin_src sql
+CREATE USER 'laravel';
+#+end_src
+
+*** [X] Grant Privileges for DB User and Password
 See all users:
 #+begin_src sql
 SELECT User, Host FROM mysql.user;
@@ -136,8 +147,13 @@ SELECT User, Host FROM mysql.user;
 
 To grant all privileges to a user on a specific database:
 #+begin_src sql
-GRANT ALL PRIVILEGES ON Backend_Web_Laravel.* TO 'username'@'localhost';
+GRANT ALL PRIVILEGES ON Backend_Web_Laravel.* TO 'laravel'@'localhost';
 FLUSH PRIVILEGES;
+#+end_src
+
+Set the password for the DB:
+#+begin_src sql
+SET PASSWORD FOR 'laravel'@'localhost' = PASSWORD('*see .env');
 #+end_src
 
 *** [ ] Fix .env for Laravel <-> Db Connection
