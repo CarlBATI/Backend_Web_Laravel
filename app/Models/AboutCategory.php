@@ -12,4 +12,9 @@ class AboutCategory extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function links()
+    {
+        return $this->hasMany(AboutLink::class);
+    }
 }
