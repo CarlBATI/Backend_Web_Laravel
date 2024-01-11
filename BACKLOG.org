@@ -4,7 +4,7 @@
 This project has been moved over from 8.x as I thought was required.
 The backlog contains a lot of the steps taken but not all and should not be interpreted as being all the work done.
 
-* Guide
+* Task Guideline
 #+begin_src org
 Content
 For this project you will have to build a website using Laravel. To clarify: we are talking about a dynamic website, so one that will store and read data dynamically from a database to persistently save information. A static page will not suffice!
@@ -106,10 +106,12 @@ Log in/out
 Register
 Forgot password
 Change password
+-----
 Add 1 default admin with a seeder
 Username: admin
 Email: admin@ehb.be
 Password: Password!321
+-----
 Theming/styles
 Provide some default styling for your website. Even though design is not a core competence of this course, I expect a minimum. If you are not good at design, use something like Bootstrap and pick a free theme from a website such as https://startbootstrap.com/Links to an external site.
 GIT
@@ -125,6 +127,10 @@ Aside from the GitHub repo, you'll also have to submit a .zip of your project on
 Handing in too late will result in a 0. I only accept submissions through Canvas. Canvas not working because you try to submit your project at the very last minute is not an excuse for handing in too late.
 #+end_src
 * Backlog
+** DONE Important: add the ~'vendor'~ folder to your ~.gitignore~ file.
+#+begin_src org
+Important: add the 'vendor' folder to your .gitignore file.
+#+end_src
 ** [4/4] Database
 *** [X] Create DB ~Backend_Web_Laravel~
 Created MariaDB DB called "Backend_Web_Laravel".
@@ -192,7 +198,7 @@ Creates the necessary categories with hardcoded ids for referencing.
 *** [ ] Maintain Current About Page:
 - Continually update the page and sources throughout the project's development.
 - Log all utilized resources in the Seeders, ensuring they're reflected in the database and page.
-** [0/3] Login and Auth
+** [1/4] Login and Auth
 #+begin_src org
 Login system
 Users can log in
@@ -202,6 +208,11 @@ Users may or may not be an administrator
 Only an administrator can promote another user to administrator status (or create a new user that is an admin)
 #+end_src
 
+*** DONE Install Laravel Breeze
+#+begin_src shell
+php artisan breeze:install
+# Using blade + alpineJs and Pest.
+#+end_src
 *** [ ] Visitors can Register
 *** [ ] Users can Log In
 *** [ ] Users can be either ~admin~ or ~user~
