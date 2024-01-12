@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             AboutCategorySeeder::class,
             AboutLinkSeeder::class,
             NewsItemSeeder::class,
+            FaqCategorySeeder::class,
+            FaqPairSeeder::class,
         ]);
     }
 }
