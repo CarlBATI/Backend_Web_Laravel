@@ -28,9 +28,9 @@ Route::middleware(['web', 'admin'])->group(function () {
         // Validate the request if needed
 
         // Create a personal access token for the user
-        $token = $user->createToken('Token Name', ['*']);
+        $token = $user->createToken($request->input('token_name'), ['*']);
 
-        return response()->json(['token' => $token->plainTextToken]);
+        return back()->with('status', 'Token created!')->with('token', $token->plainTextToken);
     })->name('tokens.create');
 
 
