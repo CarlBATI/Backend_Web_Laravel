@@ -2,9 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AboutApiController;
-use App\Http\Controllers\NewsApiController;
-use App\Http\Controllers\FaqApiController;
+use App\Http\Controllers\API\NewsApiController;
+use App\Http\Controllers\API\FaqApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    // About routes
-    Route::apiResource('about', AboutApiController::class);
-
     // News routes
     Route::apiResource('news', NewsApiController::class);
 
