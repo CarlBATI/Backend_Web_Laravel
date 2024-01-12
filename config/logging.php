@@ -52,6 +52,12 @@ return [
     */
 
     'channels' => [
+        'response' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/response.log'),
+            'level' => 'info',
+        ],
+
         'query' => [
             'driver' => 'single',
             'path' => storage_path('logs/query.log'),
