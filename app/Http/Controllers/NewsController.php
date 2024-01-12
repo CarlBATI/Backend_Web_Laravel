@@ -14,7 +14,23 @@ class NewsController extends Controller
     public function index()
     {
         $newsItems = NewsItem::all();
-        return view('news', compact('newsItems'));
+        return view('news.index', compact('newsItems'));
+    }
+
+    /**
+     * Display the specified news item.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $newsItem = NewsItem::find($id);
+        if ($newsItem) {
+            return view('news.show', compact('newsItem'));
+        } else {
+            return redirect()->route('news.index')->with('error', 'News item not found');
+        }
     }
 
     /**
@@ -29,14 +45,6 @@ class NewsController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StoreNewsItemsRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(NewsItems $newsItems)
     {
         //
     }

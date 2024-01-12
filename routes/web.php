@@ -36,5 +36,9 @@ Route::middleware('auth')->group(function () {
 // Public routes
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+
+// Protected routes
+
 
 require __DIR__.'/auth.php';
