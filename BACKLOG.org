@@ -133,7 +133,7 @@ Important: add the 'vendor' folder to your .gitignore file.
 #+end_src
 ** TODO Change App Name and Title
 ** TODO Choose and Change Template Font
-** [4/5] Database
+** [5/5] Database
 *** [X] Create DB ~Backend_Web_Laravel~
 Created MariaDB DB called "Backend_Web_Laravel".
 
@@ -165,8 +165,11 @@ SET PASSWORD FOR 'laravel'@'localhost' = PASSWORD('*see .env');
 #+end_src
 
 *** [X] Fix .env for Laravel <-> Db Connection
-*** [ ] Do some Query Optimization (e.g. eager loading)
-**** [ ] Set Up Logging for Executed Queries (Event)
+*** [X] Do some Query Optimization (e.g. eager loading)
+**** [X] Set Up Logging for Executed Queries (Event)
+***** [X] Add channel to ~config/logging.php~: ~'query'~
+***** [X] Listen for Query Event
+***** [X] Log Info to query.log
 ** [1/2] About Page
 #+begin_src org
 It is not allowed to just copy/paste an online tutorial to finish this project, but you are allowed to use them as a basis for your own website if you:
