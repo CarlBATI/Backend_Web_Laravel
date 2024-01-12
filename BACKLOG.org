@@ -131,7 +131,9 @@ Handing in too late will result in a 0. I only accept submissions through Canvas
 #+begin_src org
 Important: add the 'vendor' folder to your .gitignore file.
 #+end_src
-** [4/4] Database
+** TODO Change App Name and Title
+** TODO Choose and Change Template Font
+** [4/5] Database
 *** [X] Create DB ~Backend_Web_Laravel~
 Created MariaDB DB called "Backend_Web_Laravel".
 
@@ -163,7 +165,9 @@ SET PASSWORD FOR 'laravel'@'localhost' = PASSWORD('*see .env');
 #+end_src
 
 *** [X] Fix .env for Laravel <-> Db Connection
-** [0/3] About Page
+*** [ ] Do some Query Optimization (e.g. eager loading)
+**** [ ] Set Up Logging for Executed Queries (Event)
+** [1/2] About Page
 #+begin_src org
 It is not allowed to just copy/paste an online tutorial to finish this project, but you are allowed to use them as a basis for your own website if you:
 - understand the code you are using and can explain what it does in your own words
@@ -173,11 +177,11 @@ It is not allowed to just copy/paste an online tutorial to finish this project, 
 #+begin_src org
 You will at least have an "about" page. This is a static view that will serve as your Readme/list of sources. Cite any resources that you've used in this page, as well as a link to those pages. This page is mandatory, if your about page does not exist, you will not be able to pass for this project.
 #+end_src
-*** [ ] Frontend
+*** [X] Frontend
 **** [X] Create Page ~about~: ~resources/views/about.blade.php~
-**** [/] Create Link Component
+**** [2/2] Create Link Component
 ***** [X] Display DB Data (Categories and Links)
-***** [ ] Style Component
+***** [X] Style Component
 *** [4/4] Backend
 To make code more DRY, I decided to go the extra mile and make DB tables and loop to display all sources.
 **** [X] Create Tables
@@ -246,30 +250,56 @@ Publishing date
 *** [ ] Create DB Migrations
 *** [ ] Create Routes
 *** [ ] Style Pages
-** [0/4] Latest News
+** [1/6] Latest News
+
 #+begin_src org
 Latest news
 Admins can add, edit, and delete news items
 Every visitor of the website can view the news posts
+
 These news items have at least the following:
 Title
 Cover image
 Content
 Publishing date
 #+end_src
-*** [0/4] Backend Logic
-**** [ ] Create Migrations
-**** [ ] Create Model
-**** [ ] Create Factory
-**** [ ] Create Seeder
-*** [0/2] Frontend
-**** [ ] Create News view
-***** [ ] Has Title
-***** [ ] Has Cover Image
-***** [ ] Has Content
-***** [ ] Shows Publishing Date
-**** [ ] Create New Item Component
+
+*** DONE [0/0] Backend Logic
+Tables: news_item(s)
+Fields: Title, Image(path), Content, Publishing_date
+**** [X] Create Migrations
+***** [X] ~news_items~ table
+**** [X] Create Model: ~app/Models/NewsItem.php~
+**** [X] Create Factory: ~database/factories/NewsItemFactory.php~
+**** [X] Create Seeder: ~database/seeders/NewsItemSeeder.php~
+**** [X] Add Seeder to ~DatabaseSeeder~
+*** TODO [/] Frontend
+**** [1/1] Create News View
+***** [X] Create Page: ~resources/views/news.blade.php~
+***** [2/5] Create New Item Component
+****** [X] Make Blade Component File: ~resources/views/components/news-item.blade.php~
+****** [X] Make View Component File: ~app/View/Components/NewsItem.php~
+****** [3/4] Display Required Properties
+******* [X] Displays Title
+******* [ ] Has Cover Image
+******* [X] Displays Content
+******* [X] Shows Publishing Date
+****** [ ] Completely Styled
+**** [3/4] Create Detailed News View
+***** [X] Create NewsController Method
+***** [X] Create Route
+***** [X] Create Page: ~resources/views/news/show.blade.php~
+***** [?] Style Page
 *** [ ] Admins can Add Items
+**** [ ] Create Route
+**** [ ] Create Method in NewsController
+**** [0/3] Add Functionality to Pages
+***** [ ] ~'index~
+****** [ ] Make form
+****** [ ] Style Button
+***** [ ] ~'show'~
+****** [ ] Make form
+****** [ ] Style Button
 *** [ ] Admins can Delete Items
 *** [ ] Admins can add Edit Items
 *** [ ] Visitors can

@@ -15,6 +15,5 @@ class AboutLinkSeeder extends Seeder
     {
         AboutLink::create(['url' => 'https://laravel.com/docs/10.x', 'text' => 'Laravel 10.x Documentation', 'about_category_id' => 1]);
         AboutLink::create(['url' => 'https://tailwindcss.com/', 'text' => 'TailwindCSS', 'about_category_id' => 1]);
-        
     }
 }
