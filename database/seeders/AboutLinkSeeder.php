@@ -13,7 +13,14 @@ class AboutLinkSeeder extends Seeder
      */
     public function run(): void
     {
-        AboutLink::create(['url' => 'https://laravel.com/docs/10.x', 'text' => 'Laravel 10.x Documentation', 'about_category_id' => 1]);
-        AboutLink::create(['url' => 'https://tailwindcss.com/', 'text' => 'TailwindCSS', 'about_category_id' => 1]);
+        $links = [
+            ['url' => 'https://laravel.com/docs/10.x', 'text' => 'Laravel 10.x Documentation', 'about_category_id' => 1],
+            ['url' => 'https://tailwindcss.com/', 'text' => 'TailwindCSS', 'about_category_id' => 1],
+            ['url' => 'https://dev.to/dalelantowork/laravel-8-api-resources-for-beginners-2cpa', 'text' => 'Article: api-resources-for-beginners', 'about_category_id' => 1],
+        ];
+
+        foreach ($links as $link) {
+            AboutLink::create($link);
+        }
     }
 }
