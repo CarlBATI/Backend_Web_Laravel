@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // Controllers
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
 // Protected routes
 
