@@ -15,6 +15,15 @@ test
 ### Efficiently Create Model, Factory, and Seeder for a Table
 To create models, factories, and seeders for tables, you can use Laravel's `make:model` artisan command with the `-a` (or `--all`) option.
 
+### Efficiently Create API Controller `--api`
+```bash
+php artisan make:controller ControllerName --api
+```
+
+The `--api` option tells Artisan to generate a controller that includes methods for a RESTful resource controller. These methods are `index`, `store`, `show`, `update`, and `destroy`.
+
+*After running these commands, you should see the new controller files in the `app/Http/Controllers` directory.*
+
 ## Create VS Insert in EloquentORM
 The `created_at` and `updated_at` fields are `NULL` when the `insert` method is used. `insert` is a simple query builder method that inserts a record into the database without triggering Eloquent's events or touching the timestamps.
 
