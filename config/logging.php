@@ -58,6 +58,12 @@ return [
             'level' => 'info',
         ],
 
+        'request' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/request.log'),
+            'level' => 'debug',
+        ],
+
         'query' => [
             'driver' => 'single',
             'path' => storage_path('logs/query.log'),
