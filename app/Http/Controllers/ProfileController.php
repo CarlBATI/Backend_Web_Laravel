@@ -16,8 +16,10 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $tokens = auth()->user()->tokens;
         return view('profile.edit', [
-            'user' => $request->user(),
+            'user' => $request->user(), 
+            'tokens' => $tokens
         ]);
     }
 

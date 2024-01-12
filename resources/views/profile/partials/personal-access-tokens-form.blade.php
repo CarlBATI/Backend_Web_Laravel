@@ -18,7 +18,10 @@
         @else
         <ul>
         @foreach($tokens as $token)
-            <li>{{ $token->token_name }}</li>
+            <li class="overflow-auto">
+                <span class="text-blue-500 font-bold">{{ $token->name }}</span>
+                <span class="ml-2 text-gray-500">{{ $token->token }}</span>
+            </li>
         @endforeach
         </ul>
         @endif
