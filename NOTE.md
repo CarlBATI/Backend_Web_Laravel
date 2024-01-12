@@ -38,3 +38,14 @@ If a string `'Some text'` has a translation in the current locale, it will be re
 ``` bash
 php artisan route:list
 ```
+
+### Using web Middleware for Session Authentication
+To ensure session-based authentication is recognized use the `'web'` middleware. If API routes are not using the `web` middleware group, which includes the `StartSession` middleware necessary for session-based authentication, authenticating and authorizing via the UI won't be possible.
+
+Applying the `web` middleware group to API routes:
+
+```php
+Route::middleware(['web'])->group(function () {
+    // Protected routes
+});
+```

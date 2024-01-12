@@ -9,19 +9,29 @@
         </p>
     </header>
 
-    <form method="post" action="{{ route('tokens.store') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('tokens.create') }}" class="mt-6 space-y-6">
         @csrf
+        @method('post')
 
+        @if($tokens->isEmpty())
+        <p>No tokens are defined.</p>
+        @else
+        <ul>
+        @foreach($tokens as $token)
+            <li>{{ $token->token_name }}</li>
+        @endforeach
+        </ul>
+        @endif
+        
         <div>
             <x-input-label for="token_name" :value="__('Token Name')" />
-
-            {{--<x-input id="token_name" class="block mt-1 w-full" type="text" name="name" required autofocus />--}}
+            <x-text-input id="token_name" class="block mt-1 w-full" type="text" name="token_name" required autofocus/>
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            {{--<x-button>--}}
-                {{ __('Create') }}
-            {{--</x-button>--}}
+            <x-primary-button type="submit">
+                {{ __('Create Token') }}
+            </x-primary-button>
         </div>
     </form>
 </section>

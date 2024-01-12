@@ -17,16 +17,24 @@ use App\Http\Controllers\API\TokenController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware(['web', 'admin'])->group(function () {
+    Route::get('user', function (Request $request) {
+        return $request->user();
+    });
 
-Route::post('/tokens', [TokenController::class, 'store'])->name('tokens.store');
+     Route::post('/tokens', function (Request $request) {
+        $user = $request->user(); // Assuming you're using Breeze's authentication
 
-Route::middleware('auth:sanctum')->group(function () {
-    // News routes
+        // Validate the request if needed
+
+        // Create a personal access token for the user
+        $token = $user->createToken('Token Name', ['*']);
+
+        return response()->json(['token' => $token->plainTextToken]);
+    })->name('tokens.create');
+
+
+    // Route::post('tokens', [TokenController::class, 'store'])->name('tokens.store');
     Route::apiResource('news', NewsApiController::class);
-
-    // FAQ routes
     Route::apiResource('faq', FaqApiController::class);
 });
