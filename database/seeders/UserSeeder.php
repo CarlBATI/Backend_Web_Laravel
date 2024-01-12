@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -16,25 +17,27 @@ class UserSeeder extends Seeder
     public function run()
     {
 
-        // Define the email addresses
-        $emails = ['admin@ehb.be', 'user@ehb.be'];
+        // Define the users and their roles
+        $users = [
+            ['name' => 'admin', 'email' => 'admin@ehb.be', 'role' => 'admin', 'password' => bcrypt('Password!321')],
+            ['name' => 'user', 'email' => 'user@ehb.be', 'role' => 'user', 'password' => bcrypt('Password!321')],
+        ];
 
         // Delete the users with the specified email addresses
-        foreach ($emails as $email) {
-            User::where('email', $email)->delete();
+        foreach ($users as $user) {
+            User::where('email', $user['email'])->delete();
         }
 
-        // Create the users
-        User::create([
-            'name' => 'admin',
-            'email' => 'admin@ehb.be',
-            'password' => bcrypt('Password!321'),
-        ]);
+        // Create the users and assign the roles
+        foreach ($users as $user) {
+            $createdUser = User::create([
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'password' => $user['password'],
+            ]);
 
-        User::create([
-            'name' => 'user',
-            'email' => 'user@ehb.be',
-            'password' => bcrypt('Password!321'),
-        ]);
+            $role = Role::where('name', $user['role'])->first();
+            $createdUser->roles()->attach($role);
+        }
     }
 }

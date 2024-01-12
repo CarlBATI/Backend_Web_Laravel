@@ -221,16 +221,35 @@ Only an administrator can promote another user to administrator status (or creat
 php artisan breeze:install
 # Using blade + alpineJs and Pest.
 #+end_src
+*** [3/3] Set Up Roles
+**** [X] 'admin' and 'user'
+***** DONE Created pivot table migration: ~database/migrations/2024_01_12_141317_create_role_user_table.php~
+***** [2/2] Use roles relation, add methods
+****** [X] role() method on UserController
+****** [X] user() method on RoleController
+**** [2/2]Create Migrations
+***** [X] Migration for ~roles~ Table: ~database/migrations/2024_01_12_141310_create_roles_table.php~
+***** [X] Migration for FK ~roles_id~ in ~users~ Table: ~database/migrations/2024_01_12_141317_create_role_user_table.php~
+**** [X] Create Seeder for Roles: ~'user'~ and ~'admin'~
 *** [ ] Visitors can Register
 *** [ ] Users can Log In
 *** [ ] Users can be either ~admin~ or ~user~
-** [1/2] API
+** [1/4] API
 *** [X] Set Up Token Based API
 Using auth ~sanctum~.
+*** [ ] Token API
+**** [X] Create Controller: ~app/Http/Controllers/API/TokenController.php~
+***** [X] Create ~'store'~ method
+****** [X] Validate if user is admin
+Only admins may create tokens to access the api.
+**** [X] Creates Token
+**** [X] User must be ~'admin'~
+**** [X] Unit Test to Test: ~tests/Feature/TokenControllerTest.php~ ~test_admin_can_create_tokens~
+Unit test sucess
 *** [ ] Test API
 run ~php artisan test~ to run all tests
 **** [X] Test for ~index~ NewsItems: ~tests/Feature/NewsApiTest.php~
-** [0/5] Profile Page
+** [0/6] Profile Page
 #+begin_src org
 Profile pagina
 Each user has their own publicly available profile page
@@ -258,6 +277,8 @@ Publishing date
 **** [ ] About Me
 *** [ ] Create DB Migrations
 *** [ ] Create Routes
+*** [ ] Request API Token
+*** [ ] Delete API Token
 *** [ ] Style Pages
 ** [1/6] Latest News
 

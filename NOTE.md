@@ -28,3 +28,13 @@ The `--api` option tells Artisan to generate a controller that includes methods 
 The `created_at` and `updated_at` fields are `NULL` when the `insert` method is used. `insert` is a simple query builder method that inserts a record into the database without triggering Eloquent's events or touching the timestamps.
 
 If you want to have the `created_at` and `updated_at` fields automatically filled with the current timestamp, you should use the `create` method instead, which is a part of Eloquent ORM and does trigger these events.
+
+### Using `{{ }}` for Localization
+The `__()` function is a helper function provided by Laravel for localization or internationalization. It translates the given message based on your localization settings.
+
+If a string `'Some text'` has a translation in the current locale, it will be replaced by the translated string. If not, the original string `'Some text'` will be used.
+
+### List All Routes
+``` bash
+php artisan route:list
+```

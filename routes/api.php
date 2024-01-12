@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\NewsApiController;
 use App\Http\Controllers\API\FaqApiController;
+use App\Http\Controllers\API\TokenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ use App\Http\Controllers\API\FaqApiController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/tokens', [TokenController::class, 'store'])->name('tokens.store');
 
 Route::middleware('auth:sanctum')->group(function () {
     // News routes
