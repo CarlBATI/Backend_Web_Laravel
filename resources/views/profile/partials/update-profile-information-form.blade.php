@@ -18,7 +18,7 @@
         @csrf
         @method('patch')
 
-        <img class="rounded-full w-36 h-36 border text-slate-600 text-sm italic" src="{{ asset('storage/' . $user->avatar) }}" alt="Avatar" />
+        <img class="rounded-full w-36 h-36 border text-slate-600 text-sm italic" src="{{ asset('/storage/' . $user->avatar) }}" alt="Avatar" />
         <div>
             <x-input-label for="avatar" :value="__('Avatar')" />
             <input id="avatar" name="avatar" type="file" class="mt-1 block w-full" />

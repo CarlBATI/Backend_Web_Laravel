@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->date('birthday')->nullable();
-            $table->string('avatar')->nullable();
+            $table->string('avatar')->default('default_avatar.jpg'); // Set default value and NOT NULL
             $table->text('about_me')->nullable();
         });
     }

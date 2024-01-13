@@ -51,8 +51,8 @@ class ProfileController extends Controller
             $request->user()->avatar = 'avatars/'.$storeAs;
             $request->user()->save();
 
-            // If a new avatar was uploaded, delete the old one.
-            if ($oldAvatar && $oldAvatar != 'avatars/default_avatar.jpg') {
+            // If a new avatar was uploaded and the old avatar is not the default one, delete the old one.
+            if ($oldAvatar && $oldAvatar != 'default_avatar.jpg' && $oldAvatar != 'default_avatar.png') {
                 Storage::disk('public')->delete($oldAvatar);
             }
         }

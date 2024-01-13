@@ -1,2 +1,4 @@
 *
 !.gitignore
+!default_avatar.jpg
+!default_avatar.png:w
