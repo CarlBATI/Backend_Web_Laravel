@@ -19,8 +19,8 @@ class UserSeeder extends Seeder
 
         // Define the users and their roles
         $users = [
-            ['name' => 'admin', 'email' => 'admin@ehb.be', 'role' => 'admin', 'password' => bcrypt('Password!321')],
-            ['name' => 'user', 'email' => 'user@ehb.be', 'role' => 'user', 'password' => bcrypt('Password!321')],
+            ['name' => 'admin', 'email' => 'admin@ehb.be', 'role' => 'admin', 'password' => bcrypt('Password!321'), 'birthday' => '1998-01-01'],
+            ['name' => 'user', 'email' => 'user@ehb.be', 'role' => 'user', 'password' => bcrypt('Password!321'), 'birthday' => '1998-01-01'],
         ];
 
         // Delete the users with the specified email addresses
@@ -34,6 +34,7 @@ class UserSeeder extends Seeder
                 'name' => $user['name'],
                 'email' => $user['email'],
                 'password' => $user['password'],
+                'birthday' => $user['birthday'],
             ]);
 
             $role = Role::where('name', $user['role'])->first();

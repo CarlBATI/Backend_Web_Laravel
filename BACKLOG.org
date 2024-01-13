@@ -261,9 +261,12 @@ Birthday
 Avatar (that can be uploaded and saved on the webserver)
 Short 'about me' biography
 #+end_src
-*** [4/9] Add Components with Necessary Form(s) and Fields
-**** [ ] Component for ~'name'~, ~'email'~, ~'birthday'~
-***** [ ] Birthday
+*** [5/8] Add Components with Necessary Form(s) and Fields
+**** [X] Component for ~'name'~, ~'email'~, ~'birthday'~
+***** [X] Birthday
+****** DONE Made Accessor in User Model
+****** DONE Made Form Field in ~profile.index~
+****** DONE Modified: ~app/Http/Requests/ProfileUpdateRequest.php~
 ***** [X] Name
 ***** [X] Email
 **** [X] Component for changing ~'password'~
