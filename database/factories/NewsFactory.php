@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\NewsItem;
+use App\Models\News;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\NewsItems>
  */
-class NewsItemFactory extends Factory
+class NewsFactory extends Factory
 {
 
     /**
@@ -16,7 +16,7 @@ class NewsItemFactory extends Factory
      *
      * @var string
      */
-    protected $model = NewsItem::class;
+    protected $model = News::class;
 
     /**
      * Define the model's default state.
@@ -27,7 +27,6 @@ class NewsItemFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
-            'image' => $this->faker->imageUrl(),
             // implode("\n\n", ...) joins paragraphs together with two newline characters (\n\n) between each paragraph.
             'content' => implode("\n\n", $this->faker->paragraphs($this->faker->numberBetween(1, 20))),
             'publishing_date' => $this->faker->dateTimeThisYear,

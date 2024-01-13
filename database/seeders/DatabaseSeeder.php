@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AboutCategorySeeder::class,
             AboutLinkSeeder::class,
-            NewsItemSeeder::class,
+            NewsSeeder::class,
             FaqCategorySeeder::class,
             FaqPairSeeder::class,
         ]);

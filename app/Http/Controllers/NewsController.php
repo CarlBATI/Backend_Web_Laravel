@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreNewsItemsRequest;
-use App\Http\Requests\UpdateNewsItemsRequest;
-use App\Models\NewsItem;
+use App\Http\Requests\StoreNewsRequest;
+use App\Http\Requests\UpdateNewsRequest;
+use App\Models\News;
 
 class NewsController extends Controller
 {
@@ -13,23 +13,23 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $newsItems = NewsItem::all();
-        return view('news.index', compact('newsItems'));
+        $news = News::all();
+        return view('news.index', compact('news'));
     }
 
     /**
-     * Display the specified news item.
+     * Display the specified news.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $newsItem = NewsItem::find($id);
+        $newsItem = News::find($id);
         if ($newsItem) {
             return view('news.show', compact('newsItem'));
         } else {
-            return redirect()->route('news.index')->with('error', 'News item not found');
+            return redirect()->route('news.index')->with('error', 'News not found');
         }
     }
 
@@ -44,7 +44,7 @@ class NewsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreNewsItemsRequest $request)
+    public function store(StoreNewsRequest $request)
     {
         //
     }
@@ -52,23 +52,33 @@ class NewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(NewsItems $newsItems)
+    public function edit(News $news)
     {
         //
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified news in storage.
+     *
+     * @param  \App\Http\Requests\NewsRequest  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function update(UpdateNewsItemsRequest $request, NewsItems $newsItems)
+    public function update(NewsRequest $request, $id)
     {
-        //
+        $news = News::find($id);
+        if ($news) {
+            $news->update($request->validated());
+            return redirect()->route('news.show', ['id' => $news->id]);
+        } else {
+            return redirect()->route('news.index')->withErrors('News not found');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(NewsItems $newsItems)
+    public function destroy(News $news)
     {
         //
     }

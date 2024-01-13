@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('news_items', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->string('title', 100);
-            $table->string('image');
+            $table->string('cover_image')->default('default_news_cover.jpg');
             $table->text('content');
             $table->timestamp('publishing_date');
             $table->timestamps();
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('news_items');
+        Schema::dropIfExists('news');
     }
 };
