@@ -250,7 +250,7 @@ Unit test sucess
 *** [ ] Test API
 run ~php artisan test~ to run all tests
 **** [X] Test for ~index~ NewsItems: ~tests/Feature/NewsApiTest.php~
-** [0/6] Profile Page
+** [1/6] Profile Page
 #+begin_src org
 Profile pagina
 Each user has their own publicly available profile page
@@ -261,17 +261,26 @@ Birthday
 Avatar (that can be uploaded and saved on the webserver)
 Short 'about me' biography
 #+end_src
-*** [ ] Create Page/view
-*** [0/6] Add Necessary Form(s) and Fields
-**** [ ] Username
-**** [ ] Birthday
-**** [ ] Avatar
-**** [ ] About Me
-*** [ ] Create DB Migrations
-*** [ ] Create Routes
-*** [ ] Request API Token
-*** [ ] Delete API Token
-*** [ ] Style Pages
+*** [4/9] Add Components with Necessary Form(s) and Fields
+**** [ ] Component for ~'name'~, ~'email'~, ~'birthday'~
+***** [ ] Birthday
+***** [X] Name
+***** [X] Email
+**** [X] Component for changing ~'password'~
+**** [ ] Add Avatar Component
+***** [ ] Store imgs in Fitting Directory
+**** [ ] Add About Me Component
+**** [X] EXTRA Component for Managing Tokens
+***** [X] Request API Token
+***** [X] Delete API Token
+**** [X] Create DB Migrations
+***** [X] Username, Email, Password, etc: ~database/migrations/2014_10_12_000000_create_users_table.php~
+***** [X] Migration for Birthday: ~database/migrations/2024_01_13_091234_add_fields_to_users_table.php~
+***** [X] Migration for Avatar: ~database/migrations/2024_01_13_091234_add_fields_to_users_table.php~
+***** [X] Migration for About Me: ~database/migrations/2024_01_13_091234_add_fields_to_users_table.php~
+**** [X] Create Routes
+**** [ ] Style Pages
+
 ** [1/6] Latest News
 
 #+begin_src org
