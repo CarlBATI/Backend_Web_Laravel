@@ -250,7 +250,7 @@ Unit test sucess
 *** [ ] Test API
 run ~php artisan test~ to run all tests
 **** [X] Test for ~index~ NewsItems: ~tests/Feature/NewsApiTest.php~
-** [1/6] Profile Page
+** [4/5] Profile Page
 #+begin_src org
 Profile pagina
 Each user has their own publicly available profile page
@@ -261,7 +261,11 @@ Birthday
 Avatar (that can be uploaded and saved on the webserver)
 Short 'about me' biography
 #+end_src
-*** [5/8] Add Components with Necessary Form(s) and Fields
+*** [X] Migrations
+*** [X] Models
+*** [X] Routes
+*** [X] Controller
+*** [ ] Add Components with Necessary Form(s) and Fields
 **** [X] Component for ~'name'~, ~'email'~, ~'birthday'~
 ***** [X] Birthday
 ****** DONE Made Accessor in User Model
@@ -272,7 +276,9 @@ Short 'about me' biography
 **** [X] Component for changing ~'password'~
 **** [ ] Add Avatar Component
 ***** [ ] Store imgs in Fitting Directory
-**** [ ] Add About Me Component
+**** [X] Add About Me Component
+***** [X] Create Partial: ~resources/views/profile/partials/about-me-form.blade.php~
+***** [X] Modified: ~app/Http/Requests/ProfileUpdateRequest.php~
 **** [X] EXTRA Component for Managing Tokens
 ***** [X] Request API Token
 ***** [X] Delete API Token

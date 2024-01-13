@@ -36,6 +36,11 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
+        // If 'about_me' was changed, redirect to the profile page with a different status message.
+        if ($request->user()->wasChanged('about_me')) {
+            return Redirect::route('profile.index')->with('status', 'about_updated');
+        }
+
         return Redirect::route('profile.index')->with('status', 'profile-updated');
     }
 
