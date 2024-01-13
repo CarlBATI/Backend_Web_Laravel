@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -28,6 +29,8 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+        $user = $request->user();
+
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -35,6 +38,24 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
+
+        if ($request->hasFile('avatar')) {
+            // Store the current avatar path.
+            $oldAvatar = $request->user()->avatar;
+
+            $file = $request->file('avatar');
+            $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+            $storeAs = $filename.'_'.time().'.'.$extension;
+            Storage::disk('public')->put('avatars/'.$storeAs, file_get_contents($file));
+            $request->user()->avatar = 'avatars/'.$storeAs;
+            $request->user()->save();
+
+            // If a new avatar was uploaded, delete the old one.
+            if ($oldAvatar && $oldAvatar != 'avatars/default_avatar.jpg') {
+                Storage::disk('public')->delete($oldAvatar);
+            }
+        }
 
         // If 'about_me' was changed, redirect to the profile page with a different status message.
         if ($request->user()->wasChanged('about_me')) {
