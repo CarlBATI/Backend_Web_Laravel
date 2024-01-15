@@ -17,6 +17,7 @@ class AboutCategorySeeder extends Seeder
         $categories = [
             1 => 'documentation',
             2 => 'code',
+            3 => 'git'
             // Add categories as needed
         ];
 

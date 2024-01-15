@@ -19,6 +19,7 @@ class AboutLinkSeeder extends Seeder
             ['url' => 'https://tailwindcss.com/', 'text' => 'TailwindCSS', 'about_category_id' => 1],
             ['url' => 'https://dev.to/dalelantowork/laravel-8-api-resources-for-beginners-2cpa', 'text' => 'Article: api-resources-for-beginners', 'about_category_id' => 1],
             ['url' => 'https://alpinejs.dev/', 'text' => 'AlpineJS', 'about_category_id' => 1],
+            ['url' => 'https://github.com/CarlBATI/Backend_Web_Laravel.git', 'text' => 'GitHub Repository', 'about_category_id' => 3],
         ];
 
         foreach ($links as $link) {
