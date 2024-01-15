@@ -14,7 +14,7 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::all();
-        return view('news.index', compact('news'));
+        return view('news.index', compact('news')); 
     }
 
     /**
@@ -52,9 +52,14 @@ class NewsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(News $news)
+    public function edit($id)
     {
-        //
+        $newsItem = News::find($id);
+        if ($newsItem) {
+            return view('news.edit', compact('newsItem'));
+        } else {
+            return redirect()->route('news.index')->with('error', 'News not found');
+        }   
     }
 
     /**
@@ -73,13 +78,5 @@ class NewsController extends Controller
         } else {
             return redirect()->route('news.index')->withErrors('News not found');
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(News $news)
-    {
-        //
     }
 }

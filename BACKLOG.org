@@ -235,7 +235,7 @@ php artisan breeze:install
 *** [X] Visitors can Register
 Using Laravel Breeze.
 *** [X] Users can Log In
-** [2/3] API
+** [3/3] API
 *** [X] Set Up Token Based API
 Using auth ~sanctum~.
 *** [X] Token API
@@ -247,7 +247,7 @@ Only admins may create tokens to access the api.
 **** [X] User must be ~'admin'~
 **** [X] Unit Test to Test: ~tests/Feature/TokenControllerTest.php~ ~test_admin_can_create_tokens~
 Unit test sucess
-*** [ ] Test API
+*** [X] Test API
 run ~php artisan test~ to run all tests
 **** [X] Test for ~index~ NewsItems: ~tests/Feature/NewsApiTest.php~
 ** [4/5] Profile Page
@@ -274,8 +274,16 @@ Short 'about me' biography
 ***** [X] Name
 ***** [X] Email
 **** [X] Component for changing ~'password'~
-**** [ ] Add Avatar Component
-***** [ ] Store imgs in Fitting Directory
+**** [X] Add Avatar Component
+Uses symlink:
+#+begin_src shell
+php artisan storage:link
+#+end_src
+***** [X] Store imgs in Fitting Directory
+***** [X] Default Avatar
+***** [X] Can Store jpg and png
+***** [X] Display Current Avatar
+***** [X] Change Avatar
 **** [X] Add About Me Component
 ***** [X] Create Partial: ~resources/views/profile/partials/about-me-form.blade.php~
 ***** [X] Modified: ~app/Http/Requests/ProfileUpdateRequest.php~
@@ -289,7 +297,6 @@ Short 'about me' biography
 ***** [X] Migration for About Me: ~database/migrations/2024_01_13_091234_add_fields_to_users_table.php~
 **** [X] Create Routes
 **** [ ] Style Pages
-
 ** [1/6] Latest News
 
 #+begin_src org
@@ -304,7 +311,7 @@ Content
 Publishing date
 #+end_src
 
-*** DONE [0/0] Backend Logic
+*** DONE [5/7] Backend Logic
 Tables: news_item(s)
 Fields: Title, Image(path), Content, Publishing_date
 **** [X] Create Migrations
@@ -313,6 +320,11 @@ Fields: Title, Image(path), Content, Publishing_date
 **** [X] Create Factory: ~database/factories/NewsItemFactory.php~
 **** [X] Create Seeder: ~database/seeders/NewsItemSeeder.php~
 **** [X] Add Seeder to ~DatabaseSeeder~
+**** [ ] Create API
+***** [ ] Controller
+****** [ ] POST method
+****** [ ] PUT method
+****** [ ] DELETE method
 *** TODO [/] Frontend
 **** [1/1] Create News View
 ***** [X] Create Page: ~resources/views/news.blade.php~

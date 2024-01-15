@@ -6,15 +6,14 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class NewsItem extends Component
+class AdminBar extends Component
 {
-    public $newsItem;
     /**
      * Create a new component instance.
      */
-    public function __construct($newsItem)
+    public function __construct()
     {
-        $this->newsItem = $newsItem;
+        //
     }
 
     /**
@@ -22,6 +21,6 @@ class NewsItem extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('news.components.news-item');
+        return view('components.admin-bar');
     }
 }

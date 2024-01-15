@@ -30,8 +30,16 @@ Route::get('/dashboard', function () {
 
 // Public routes
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
-Route::get('/news', [NewsController::class, 'index'])->name('news.index');
-Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+
+Route::prefix('news')->name('news.')->group(function () {
+    Route::get('/', [NewsController::class, 'index'])->name('index');
+    Route::get('/{id}', [NewsController::class, 'show'])->name('show');
+    Route::get('/edit/{id}', [NewsController::class, 'edit'])->name('edit');
+    Route::patch('/{id}', [NewsController::class, 'update'])->name('update');
+    Route::post('/{id}', [NewsController::class, 'create'])->name('create');
+});
+Route::delete('/news/{id}', [NewsController::class, 'destroy'])->name('destroy');
+
 Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
 // Protected routes
